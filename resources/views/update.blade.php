@@ -8,7 +8,7 @@
                     <div class="panel-heading">Welcome {{ Auth::user()->name }} <span class=""><a href="{{ url('/register') }}">  &nbsp; &nbsp;Go back</a></span></div>
 
                     <div class="panel-body">
-                        Add staff here:
+                        Update blog:
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('update_blog') }}">
                             {{ csrf_field() }}
                             <input type="hidden" class="form-control" name="id" value="{{ $blogup->id }}">
