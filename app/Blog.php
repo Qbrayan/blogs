@@ -18,4 +18,8 @@ class Blog extends Model
         'password', 'remember_token',
     ];
     protected $table = 'blogs';
+    public function intern()
+    {
+        return $this->belongsTo(Intern::class);
+    }
 }

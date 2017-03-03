@@ -9,13 +9,18 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return view('blog');
+        return view('blog',['blogs' => Blog::all()]);
+    }
+
+    public function create()
+    {
+        return view('new_blog');
     }
 
     public function add(Request $request)
     {
         Blog::create(['name'=>$request->input('name'), 'author'=>$request->input('author'), 'category'=>$request->input('category')]);
-        return Redirect('/home');
+        return Redirect('/blog');
     }
     public function delete($id)
     {
@@ -23,11 +28,11 @@ class BlogController extends Controller
         {
             Blog::findOrFail($id)->forceDelete();
         }
-        catch (Exception $e)
+        catch (\Exception $e)
         {
             dd("The blog you are trying to delete does not exist");
         }
-        return Redirect('/home');
+        return Redirect('/blog');
     }
     public function getUpdate($id)
     {
@@ -37,6 +42,6 @@ class BlogController extends Controller
     {
         $id = $request -> input('id');
         Blog::where('id', $id)->update(['name'=>$request->input('name'), 'author'=>$request->input('author'), 'category'=>$request->input('category')]);
-        return Redirect('/home');
+        return Redirect('/blog');
     }
 }

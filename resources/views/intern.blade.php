@@ -10,28 +10,30 @@
 
                 <div class="panel-body">
                     <div class="add-blog">
-                        <a href="{{ url('/create_blog') }}">Add New Blog</a><br/>
+                        <a href="{{ url('/create_intern') }}">Add New Intern</a><br/>
                     </div>
 
 
                     <table width="100%" class="table">
                         <thead class="">
                         <tr>
-                            <th>Name:</th>
-                            <th>Author:</th>
-                            <th>Category:</th>
+                            <th>FirstName:</th>
+                            <th>LastName:</th>
+                            <th>Department:</th>
+                            <th>Contact:</th>
                             <th>Update and Delete</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($blogs as $blog)
+                        @foreach($interns as $intern)
                             <tr>
-                                <td> {{ $blog->name }}</td>
-                                <td> {{ $blog->author }}</td>
-                                <td> {{ $blog->category }}</td>
-                                <td><span class="update"><a href="{{url('update_blog/' .$blog->id)}}">Update</a></span>
+                                <td> {{ $intern->firstname }}</td>
+                                <td> {{ $intern->lastname }}</td>
+                                <td> {{ $intern->department }}</td>
+                                <td> {{ $intern->contact }}</td>
+                                <td><span class="update"><a href="{{url('update_intern/' .$intern->id)}}">Update</a></span>
                                     &nbsp;&nbsp;
-                                    <span class="remove"><a href="{{url('delete_blog/' .$blog->id)}}">Remove</a></span>
+                                    <span class="remove"><a href="{{url('delete_intern/' .$intern->id)}}">Remove</a></span>
                                 </td>
                             </tr>
                         @endforeach
